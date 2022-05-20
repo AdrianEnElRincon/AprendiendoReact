@@ -17,12 +17,8 @@
         const root = ReactDOM.createRoot(rootNode)
 
         function tick() {
-            const element = (
-                <div>
-                    <h2>Son las {new Date().toLocaleTimeString()}.</h2>
-                </div>
-            );
-            root.render(element);
+            const reloj = <h2>Son las {new Date().toLocaleTimeString()}.</h2>
+            root.render(reloj);
         }
 
         setInterval(tick, 1000);
