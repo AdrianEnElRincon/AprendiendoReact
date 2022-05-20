@@ -1,10 +1,10 @@
 # Aprendiendo React - 2DAWN
 
-## Este repositorio es una pequeña introducción a React
+### Este repositorio es una pequeña introducción a React
 
-NOTA: Para usar el servidor se requiere node.js y npm, y ejecutar el comando `npm install` y `npm start` en el directorio del servidor
+##### NOTA: Para usar el servidor se requiere node.js y npm, y ejecutar el comando `npm install` y `npm start` en el directorio del servidor
 
-### Contenidos
+#### Contenidos
 + Introduccion
     - [Vanilla Javascript](1.html)
     - [Primer Elemento de React](2.html)
