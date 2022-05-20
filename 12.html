@@ -20,13 +20,13 @@
             console.log('Click')
         }
 
-        function Boton(props) {
-            return <button onClick={log}>Click!</button>
-        }
-
         // function Boton(props) {
-        //     return <button onClick={() => console.log('Click')}>Click!</button>
+        //     return <button onClick={log}>Click!</button>
         // }
+
+        function Boton(props) {
+            return <button onClick={() => console.log('Click')}>Click!</button>
+        }
 
         root.render(<Boton />)
 
