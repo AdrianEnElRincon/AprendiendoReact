@@ -1,4 +1,4 @@
-<!-- Como usar la funcion useEffect para hacer llamadas a un servidor -->
+<!-- Como usar inputs que actualizan la pagina dinamicamente-->
 
 <body>
 
@@ -10,26 +10,26 @@
 
     <script type="text/babel">
 
-        const root = ReactDOM.createRoot(document.getElementById('root'))
+        function HelloInput(props) {
 
-        function App() {
+            const [name, setName] = React.useState('World')
 
-            const [data, setData] = React.useState({})
-            
-            React.useEffect(() => {
-                fetch('https://jsonplaceholder.typicode.com/posts/1')
-                    .then((response) => response.json())
-                    .then((json) => setData(json))
-            }, [])            
-            
+            const handleChange = event => {
+                setName(event.target.value)
+            }
+
             return (
                 <div>
-                    <p>{data.body}</p>
+                    <h1>Hello {name}!</h1>
+                    <input type="text" placeHolder="World" onChange={handleChange}></input>
                 </div>
             )
+
         }
 
-        root.render(<App />)
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(<HelloInput />)
 
     </script>
 

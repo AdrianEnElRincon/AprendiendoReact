@@ -22,9 +22,8 @@
     - [Introduccion a useState](14.html)
     - [Como si usar el estado](15.html)
     - [Como usar listas para crear elementos](16.html)
-    - [Introducción a useEffect](17.html)
 + Ejemplos
-    - [Entrada de datos dinamica](18.html)
-    - [Conversor de unidades](19.html)
+    - [Entrada de datos dinamica](17.html)
+    - [Conversor de unidades](18.html)
 + Extras
     - [Plantilla para empezar con React](0.html)
