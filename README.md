@@ -29,5 +29,6 @@ NOTA: Para usar el servidor se requiere node.js y npm, y ejecutar el comando `np
     - [Entrada de datos dinamica](18.html)
     - [Conversor de unidades](19.html)
     - [Enlazar interfaz con el servidor](20.html)
-+ Extra
++ Extras
+    - [Plantilla para empezar con React](0.html)
     - [Codigo para el servidor](server)
