@@ -2,8 +2,6 @@
 
 ### Este repositorio es una pequeña introducción a React
 
-NOTA: Para usar el servidor se requiere node.js y npm, y ejecutar el comando `npm install` y `npm start` en el directorio del servidor
-
 #### Contenidos
 + Introduccion
     - [Vanilla Javascript](1.html)
@@ -28,7 +26,5 @@ NOTA: Para usar el servidor se requiere node.js y npm, y ejecutar el comando `np
 + Ejemplos
     - [Entrada de datos dinamica](18.html)
     - [Conversor de unidades](19.html)
-    - [Enlazar interfaz con el servidor](20.html)
 + Extras
     - [Plantilla para empezar con React](0.html)
-    - [Codigo para el servidor](server)
