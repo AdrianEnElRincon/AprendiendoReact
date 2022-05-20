@@ -1,0 +1,33 @@
+<!-- Crear componentes de React -->
+
+<title>Nuestro primer componente</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        // function Bienvenido(props) {
+        //     return <h1>Bienvenido {props.nombre}</h1>
+        // }
+
+        class Bienvenido extends React.Component {
+            render() {
+                return <h1>Bienvenido {this.props.nombre}</h1>
+            }
+        }
+
+        root.render(<Bienvenido nombre="Juan Diaz" />)
+
+    </script>
+
+</body>

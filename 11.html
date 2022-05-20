@@ -1,0 +1,37 @@
+<!-- Composicion de componentes -->
+
+<title>Composicion de componentes</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        function Animal(props) {
+            return <li>{props.nombre}</li>
+        }
+
+        function ListaDeAnimales(props) {
+            return (
+                <ul>
+                    <Animal nombre="Perro" />
+                    <Animal nombre="Gato" />
+                    <Animal nombre="Tortuga" />
+                </ul>
+            )
+        }
+
+        root.render(<ListaDeAnimales />)
+
+    </script>
+
+</body>

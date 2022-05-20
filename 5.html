@@ -1,0 +1,27 @@
+<!-- Usar funciones en expresiones dentro de JSX -->
+
+<title>Sumando con JSX!</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        function suma(n1,n2) {
+            return n1 + n2
+        }
+
+        root.render(<p>2 + 2 = {suma(2,2)}!</p>)
+
+    </script>
+
+</body>

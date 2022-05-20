@@ -1,0 +1,35 @@
+<!-- Usar la funcion useState para modificar el estado -->
+
+<title>La funcion magica de react... useState!</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        function Contador(props) {
+
+            const [contador, setContador] = React.useState(0)
+
+            return (
+                <div>
+                    <h1>Has hecho click {contador} veces</h1>
+                    <button onClick={() => setContador(contador + 1)}>Click!</button>
+                </div>
+            )
+        }
+
+        root.render(<Contador />)
+
+    </script>
+
+</body>

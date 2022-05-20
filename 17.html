@@ -1,0 +1,36 @@
+<!-- Usar la funcion useEffect para hacer llamadas a un servidor -->
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+
+        function App() {
+
+            const [data, setData] = React.useState({})
+            
+            React.useEffect(() => {
+                fetch('https://jsonplaceholder.typicode.com/posts/1')
+                    .then((response) => response.json())
+                    .then((json) => setData(json))
+            }, [])            
+            
+            return (
+                <div>
+                    <p>{data.body}</p>
+                </div>
+            )
+        }
+
+        root.render(<App />)
+
+    </script>
+
+</body>

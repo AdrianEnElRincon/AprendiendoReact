@@ -1,0 +1,24 @@
+<!-- Crear elementos y añadirlos al documento con React -->
+
+<title>Primer paso con React</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script>
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        const holaMundo = React.createElement('h1', [], 'Hola mundo!')
+        
+        root.render(holaMundo)
+
+    </script>
+
+</body>

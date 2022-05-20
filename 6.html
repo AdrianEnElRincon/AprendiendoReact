@@ -1,0 +1,31 @@
+<!-- JSX tambien es una expresion! -->
+
+<title>JSX como una expresion</title>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const rootNode = document.getElementById('root')
+
+        const root = ReactDOM.createRoot(rootNode)
+
+        function verdad_o_falso(condicion) {
+            if (condicion) {
+                return <h1>Es verdadero!</h1>
+            } else {
+                return <h1>Es falso!</h1>
+            }
+        }
+
+        root.render(verdad_o_falso(false))
+
+    </script>
+
+</body>

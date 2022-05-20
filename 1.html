@@ -1,0 +1,21 @@
+<!-- Crear elementos y añadirlos al documento con vanilla Javascript -->
+
+<title>Vanilla JS</title>
+
+<body>
+    
+    <div id="root"></div>
+    
+    <script>
+
+        const root = document.getElementById('root')
+        
+        const holaMundo = document.createElement('h1')
+
+        holaMundo.innerText = 'Hola mundo!'
+
+        root.append(holaMundo)
+
+    </script>
+
+</body>
