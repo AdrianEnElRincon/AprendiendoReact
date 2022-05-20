@@ -1,4 +1,15 @@
+<!-- Convertir datos en contenido dinamico -->
 
+<style>
+    table,
+    td {
+        border: .1rem solid;
+    }
+
+    td {
+        padding: .3rem;
+    }
+</style>
 
 <body>
 
@@ -10,10 +21,125 @@
 
     <script type="text/babel">
 
+        const server = 'http://127.0.0.1:3000/'
+
         const root = ReactDOM.createRoot(document.getElementById('root'))
 
-        
+        function Donante(props) {
 
+            function handleBorrarDonante(e) {
+                props.borrar(props.id)
+            }
+
+            return (
+                <tr>
+                    <td>{props.id}</td>
+                    <td>{props.nombre}</td>
+                    <td>{props.telefono}</td>
+                    <td>{props.donacion.join(' ')}</td>
+                    <td><button onClick={handleBorrarDonante}>Borrar</button></td>
+                </tr>
+            )
+        }
+
+        function CrearDonante(props) {
+
+            
+            const [nombre, setNombre] = React.useState('')
+            const [telefono, setTelefono] = React.useState('')
+            const [donacion, setDonacion] = React.useState('0')
+            const [simbolo, setSimbolo] = React.useState('$')
+            
+            function resetState() {
+                setNombre('')
+                setTelefono('')
+                setDonacion('0')
+                setSimbolo('$')
+            }
+
+            function handleCrearDonantes(e) {
+                e.preventDefault()
+                props.crear({
+                    nombre: nombre,
+                    telefono: telefono,
+                    donacion: [donacion, simbolo]
+                })
+                e.target.reset()
+                resetState()
+            }
+
+    
+            return (
+                <form onSubmit={handleCrearDonantes}>
+                    <legend>Nombre del donante:</legend>
+                    <input type="text" onChange={e => setNombre(e.target.value)}></input>
+                    <legend>Numero de telefono del donante:</legend>
+                    <input type="text" onChange={e => setTelefono(e.target.value)}></input>
+                    <legend>Cantidad de la donación:</legend>
+                    <input type="number" onChange={e => setDonacion(e.target.value)}></input>
+                    <select defaultValue="$" onChange={e => setSimbolo(e.target.value)}>
+                        <option value="$">$</option>
+                        <option value="€">€</option>
+                    </select>
+                    <input type="submit" value="Submit"></input>
+                </form>
+            )
+
+        }
+
+        function AdministradorDonantes(props) {
+
+            const [donantes, setDonantes] = React.useState([])
+            
+            function handleBorrarDonante(id) {
+                setDonantes(donantes.filter((donante, index) => index !== id))
+                fetch(server + id, {
+                    method: 'DELETE'
+                })
+            }
+
+            function handleCrearDonante(donante) {
+                
+                fetch(server, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(donante)
+                })
+                setDonantes([...donantes, donante])
+            }
+
+            React.useEffect(() => {
+                fetch(server).then(res => res.json()).then(data => setDonantes(data))
+            }, [])
+
+            function TableHead() {
+                return (
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Donación</th>
+                    </tr>
+                )
+            }
+            
+            return (
+                <div>
+                    <table>
+                        <thead>
+                            <TableHead />
+                        </thead>
+                        <tbody>
+                            {donantes.map((datos, key) => <Donante {...datos} key={key} id={key} borrar={handleBorrarDonante}/>)}
+                        </tbody>
+                    </table>
+                    <CrearDonante crear={handleCrearDonante} />
+                </div>
+            )
+
+        }
+
+        root.render(<AdministradorDonantes />)
     </script>
 
 </body>

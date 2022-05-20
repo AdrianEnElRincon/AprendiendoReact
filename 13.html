@@ -19,8 +19,8 @@
         function Bienvenido(props) {
             return (
                 <div>
-                    <h1>Bienvenido {nombre}</h1>
-                    <button onClick={props.nombre = 'Laura'}>Cambia el Nombre</button>
+                    <h1>Bienvenido {props.nombre}</h1>
+                    <button onClick={() => props.nombre = 'Laura'}>Cambia el Nombre</button>
                 </div>
             )
         }
